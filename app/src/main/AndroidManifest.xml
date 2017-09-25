@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.Example.notificationdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.Example.notificationdemo.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.Example.notificationdemo.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <receiver
+            android:name="com.Example.notificationdemo.NotificationBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2">
+                <action android:name="com.delarostudios.notificationdemo.previous" />
+                <action android:name="com.delarostudios.notificationdemo.delete" />
+                <action android:name="com.delarostudios.notificationdemo.pause" />
+                <action android:name="com.delarostudios.notificationdemo.next" />
+                <action android:name="com.delarostudios.notificationdemo.play" />
+
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.Example.notificationdemo.SecondNotificaitonBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1">
+
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+
+            </intent-filter>
+
+        </receiver>
+    </application>
+
+</manifest>
